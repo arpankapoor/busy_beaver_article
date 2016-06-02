@@ -1,0 +1,613 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <title>The Busy Beaver Problem</title> 
+<meta charset="utf-8" /> 
+<link rel="stylesheet" href="article.css" /> 
+<script type="text/javascript" async 
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> 
+</script> 
+<style type="text/css"> 
+.MathJax_MathML {text-indent: 0;} 
+</style> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                
+
+                                                                                
+                                                                                
+
+                                                                                
+
+<h2 class="titleHead">The Busy Beaver Problem</h2>
+<div class="author" >Deepak Sirone J <br class="and" />Arpan Kapoor</div><br />
+<div class="date" >June 3, 2016</div>
+   </div>
+<p>   A function is merely an abstraction used by mathematicians. It is deﬁned by its input type called
+the domain, output type called the range and suitable deﬁnitions of the domain and the range. A
+suitable deﬁnition is one which does not cause ambiguity, that is one which does not render itself to
+multiple interpretations.
+</p> 
+<p>   For example:
+     </p> 
+<ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x1-3x1"><!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>x</mi> <mo 
+class="MathClass-bin">×</mo> <mi 
+>x</mi></mrow></math>
+     , where <!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-rel">∈</mo> <mi 
+>ℝ</mi></mrow></math>.
+     Here we assume that the operation <!--l. 30--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mo 
+class="MathClass-bin">×</mo></mrow></math>
+     is closed in <!--l. 30--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>ℝ</mi></mrow></math>
+     </li>
+     <li 
+  class="enumerate" id="x1-5x2"><!--l. 32--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>e</mi><mo 
+class="MathClass-rel">∣</mo><mo 
+class="MathClass-op">∀</mo><mi 
+>k</mi> <mo 
+class="MathClass-rel">∈</mo> <mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>e</mi> <mo 
+class="MathClass-rel">&#x003E;</mo> <mi 
+>x</mi></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow></math>
+     where <!--l. 32--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>x</mi></mrow></math>
+     is a ﬁnite subset of natural numbers</li></ol>
+<p>   Many a time we are interested in computing the output of a function using an
+algorithm. The description of the ﬁrst example in this case, implicitly gives us an
+algorithm for computing the output if the algorithm for performing the operation
+<!--l. 39--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mo 
+class="MathClass-bin">×</mo></mrow></math> is
+known. The second example intuitively asks us to iterate through the elements in the set and ﬁnd the
+unique largest element in it, if it exists.
+</p> 
+<p>   However, the notion of a function does not deﬁne the algorithm to get from the input to the
+output. This means that using this deﬁnition of functions, you have the freedom to deﬁne
+your own functions, provided you can specify the domain and range precisely. So a function
+which outputs the number of sand grains in the Sahara desert at a particular instant of
+time is perfectly legal! This however does not ensure that there exists an algorithm to do
+it.
+</p> 
+<p>   The example functions above, are deﬁnable by an algorithm. Such functions are called computable
+functions. There also exists functions which can be proved to not have an algorithm and they are called
+non-computable functions. One such function known as the Busy Beaver function was deﬁned by Timos
+Rado in his 1961 paper “On Non-Computable Functions”[<a id="page.3"></a><a 
+href="article.html#X0-rado_non-computable_1962" >6</a>].
+                                                                                
+
+                                                                                
+</p> 
+<p>   The busy beaver function is concerned with a model of executing algorithms known
+as Turing machines. A Turing machine is a machine which has an inﬁnite bidirectional
+input/output tape, a tape head and rules governing the movement of the tape head on the tape.
+The tape is divided into cells and the symbols written on the tape are from an alphabet
+<!--l. 60--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>Σ</mi></mrow></math>.
+Similar to a ﬁnite state machine, a Turing machine has a set of states,
+<!--l. 61--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>Q</mi></mrow></math> and a transition
+function <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>δ</mi></mrow></math>.
+The tape head reads one symbol on the tape at a time and based on the transition function,
+overwrites the symbol with another symbol and shifts (steps either right or left on the tape
+<span class="footnote-mark"><a 
+href="#fn1x0" id="fn1x0-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-6f1"></a>.
+The Turing machine also has a halt state whereby the machine stops running. The
+running time of a Turing machine on an input is measured as the number of shifts it
+performs before it enters its halting conﬁguration. A binary Turing machine is one with
+<!--l. 70--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>Σ</mi> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">{</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow></math>.
+</p> 
+<p>   Not all Turing machines stop running on its given input. The problem of determining whether a Turing
+machine <!--l. 73--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math> halts
+on input <!--l. 73--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>x</mi></mrow></math> is
+known as the halting problem. The halting problem has been shown to be undecidable, meaning
+that there is no Turing machine (or algorithm for that matter) to solve it. We could try
+simulating a given machine, to see if it stops after a while. But the problem is that we don&#x2019;t
+know for how long the simulation should continue. Suppose we simulate a Turing machine
+<!--l. 78--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math> on input
+<!--l. 78--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>x</mi></mrow></math> using another
+Turing machine <span class="footnote-mark"><a 
+href="#fn2x0" id="fn2x0-bk"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-7f2"></a>
+for <!--l. 80--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+steps and conclude that it does not halt, we can always ﬁnd another Turing machine
+<!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mi 
+>M</mi></mrow><mrow 
+><mi 
+>′</mi></mrow></msup 
+></mrow></math> which halts
+on input <!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>x</mi></mrow></math> in
+<!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></math> steps.
+Hence simulation does not work.
+</p> 
+<p>   Turns out that the Turing machine model can simulate circuits (both sequential and combinational)
+and hence we can safely conclude that it is capable of simulating all algorithms that can be run on a
+real computer.
+</p> 
+<p>   We call a binary Turing Machine a <!--l. 101--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>-state
+Busy Beaver if on an empty tape as input it halts and runs for at least as many steps as any other
+<!--l. 102--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>-state
+binary Turing machine.
+</p> 
+<p>   In order to ﬁnd a <!--l. 105--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>-state Busy Beaver,
+we would have to evaluate all <!--l. 106--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>-state
+binary Turing machines. How many such Turing machines exist? Since we have ﬁxed the cardinality of Q and
+the alphabet (<!--l. 108--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>Σ</mi> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">{</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow></math>),
+the number of possible Turing machines is equal to the number of possible transition
+function. The transition function&#x2019;s domain is the cross product of the set of states with the
+alphabet and codomain is the cross product of the set of states, the alphabet and the set
+<!--l. 111--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>L</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>R</mi></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow></math>.
+                                                                                
+
+                                                                                
+   </p> 
+<div class="par-math-display"><!--l. 113--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                            <mi 
+>δ</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>Q</mi> <mo 
+class="MathClass-bin">×</mo> <mi 
+>Σ</mi> <mo 
+class="MathClass-rel">→</mo> <mi 
+>Q</mi> <mo 
+class="MathClass-bin">×</mo> <mi 
+>Σ</mi> <mo 
+class="MathClass-bin">×</mo><mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>L</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>R</mi></mrow><mo 
+class="MathClass-close">}</mo></mrow>
+</mrow></math></div>
+<p>
+   </p> 
+<div class="math-display"><!--l. 114--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <mo 
+class="MathClass-rel">|</mo><mi 
+>Q</mi><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-rel">=</mo> <mi 
+>k</mi>
+</mrow></math></div>
+<p>
+   </p> 
+<div class="math-display"><!--l. 115--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                                 <mo 
+class="MathClass-rel">|</mo><mi 
+>Σ</mi><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn>
+</mrow></math></div>
+<p>
+                                                                                
+
+                                                                                
+   </p> 
+<div class="math-display"><!--l. 116--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                                       <mo 
+class="MathClass-rel">|</mo><mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>L</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>R</mi></mrow><mo 
+class="MathClass-close">}</mo></mrow><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn>
+</mrow></math></div>
+<p>
+</p> 
+<p>   From the above, we see that there are <!--l. 118--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn> <mo 
+class="MathClass-bin">×</mo> <mn>2</mn> <mo 
+class="MathClass-bin">×</mo> <mi 
+>k</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn><mi 
+>k</mi></mrow></msup 
+></mrow></math>,
+i.e. <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>4</mn><mi 
+>k</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn><mi 
+>k</mi></mrow></msup 
+></mrow></math> number
+of <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>-state
+binary Turing machines.
+</p> 
+<p>   The Busy Beaver function&#x2019;s input is a positive integer
+<!--l. 121--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>n</mi></mrow></math> and it outputs the number
+of steps taken by a <!--l. 122--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>n</mi></mrow></math>-state
+Busy Beaver Turing machine to halt. Assuming this function to be computable gives us the following
+algorithm to solve the halting problem, which we know is not possible. Hence our assumption must be
+wrong.
+   </p> 
+<div class="algorithmic">
+      <span class="label-5.0pt">
+  </span> <span 
+class="algorithmic"><b>function</b> halts?(M, x)       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    k = <!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-rel">|</mo></mrow></math>M.Q<!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-rel">|</mo></mrow></math>   <!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-bin">⊳</mo></mrow></math>   Number of states of the Turing machine M       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    bbk = BB(k) <!--l. 130--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-bin">⊳</mo></mrow></math>   Number of steps taken by a <!--l. 130--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mi 
+>k</mi></mrow></math>-state   Busy Beaver       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b>if</b> UTM(M, x, bbk) <b>then</b> <b>return</b> Halts <!--l. 132--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-bin">⊳</mo></mrow></math>   UTM simulates M on input x for bbk steps       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b>else</b> <b>return</b> Does NOT Halt       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b>end</b> <b>if</b>       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic"><b>end</b> <b>function</b></span>
+<p>   </div>
+</p> 
+<p>   Another interesting fact that can be observed using the same argument is
+that the Busy Beaver function grows faster than all computable functions, i.e.
+<!--l. 141--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>O</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>B</mi><mi 
+>B</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></math> for any computable function
+                                                                                
+
+                                                                                
+<!--l. 141--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi></mrow></math>. This is because if some
+computable function <!--l. 142--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi></mrow></math>
+grew faster than the Busy Beaver function, the function call to BB in the above algorithm can be replaced with a call
+to this function <!--l. 144--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi></mrow></math>,
+enabling us to solve the halting problem. Again our assumption would be wrong. Table (xx) shows
+what we know currently about the busy beaver series.
+   </p> 
+
+<div class="center" 
+>
+<p>
+</p> 
+<div class="tabular"> <table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /></colgroup><colgroup id="TBL-2-2g"><col 
+id="TBL-2-2" /></colgroup><colgroup id="TBL-2-3g"><col 
+id="TBL-2-3" /></colgroup><colgroup id="TBL-2-4g"><col 
+id="TBL-2-4" /></colgroup><colgroup id="TBL-2-5g"><col 
+id="TBL-2-5" /></colgroup><colgroup id="TBL-2-6g"><col 
+id="TBL-2-6" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-1"  
+class="td11">                                                                               </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-2"  
+class="td11">2 State</td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-3"  
+class="td11">3 State</td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-4"  
+class="td11">4 State</td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-5"  
+class="td11">5 State                                                                                                                    </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-6"  
+class="td11">6 State                                                                                                                    </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-1"  
+class="td11"><!--l. 153--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>B</mi><mi 
+>B</mi></mrow></math></td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-2"  
+class="td11">6        </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-3"  
+class="td11">21      </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-4"  
+class="td11">107     </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-5"  
+class="td11"><!--l. 153--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mo 
+class="MathClass-rel">≥</mo> <mn>4</mn><mn>7</mn><mo 
+class="MathClass-punc">,</mo><mn>1</mn><mn>7</mn><mn>6</mn><mo 
+class="MathClass-punc">,</mo><mn>8</mn><mn>7</mn><mn>0</mn></mrow></math></td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-6"  
+class="td11"><!--l. 153--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mo 
+class="MathClass-rel">&#x003E;</mo> <mn>7</mn><mo 
+class="MathClass-punc">.</mo><mn>4</mn> <mo 
+class="MathClass-bin">×</mo> <mn>1</mn><msup><mrow 
+><mn>0</mn></mrow><mrow 
+><mn>3</mn><mn>6</mn><mn>5</mn><mn>3</mn><mn>4</mn></mrow></msup 
+></mrow></math></td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-1"  
+class="td11">                                                                                </td></tr></table>
+</div></div>
+<p>   So far only we know the exact values of the busy beaver series upto 5 state
+Turing machines. The Busy Beaver series suggests a new method for solving
+theoretical problems in mathematics. For example, suppose we have a Turing machine
+<!--l. 163--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math>
+which veriﬁes Goldbach&#x2019;s conjecture (which states that every even number n,
+<!--l. 164--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>n</mi> <mo 
+class="MathClass-rel">≥</mo> <mn>4</mn></mrow></math> is the sum of two primes)
+and it has <!--l. 164--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math> states. If we
+were able to ﬁnd <!--l. 165--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>B</mi><mi 
+>B</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>k</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></math> exactly
+then we could run <!--l. 165--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math>
+for <!--l. 165--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>B</mi><mi 
+>B</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>k</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></math>
+steps and conclude that the conjecture holds if it does not stop within that many steps, else we
+conclude that the conjecture does not hold.
+   </p> 
+
+   <h3 class="sectionHead"><a 
+ id="x1-1000"></a>References</h3>
+<p>
+    </p> 
+<dl class="thebibliography"><dt id="X0-aaronson_who_1999" class="thebibliography">
+[1]  </dt><dd 
+id="bib-1" class="thebibliography">
+    <p><a id="page.7"></a><a 
+href="article.html" id="X0-" ></a>Scott     Aaronson.     Who    Can    Name    the    Bigger    Number?     1999.     url:
+    <a 
+href="http://www.scottaaronson.com/writings/bignumbers.html" class="url" >http://www.scottaaronson.com/writings/bignumbers.html</a>.
+    </p> 
+</dd><dt id="X0-baez_busy_2016" class="thebibliography">
+[2]  </dt><dd 
+id="bib-2" class="thebibliography">
+    <p>John       Baez.       The      Busy      Beaver      Game.       May 21,       2016.       url:
+    <a 
+href="https://johncarlosbaez.wordpress.com/2016/05/21/the-busy-beaver-game/" class="url" >https://johncarlosbaez.wordpress.com/2016/05/21/the-busy-beaver-game/</a>.
+    </p> 
+</dd><dt id="X0-_busy_2016" class="thebibliography">
+[3]  </dt><dd 
+id="bib-3" class="thebibliography">
+    <p>Busy    beaver.    In:    Wikipedia,    the    free    encyclopedia.    May 11,    2016.    url:
+    <a 
+href="https://en.wikipedia.org/w/index.php?title=Busy_beaver&oldid=719770898" class="url" >https://en.wikipedia.org/w/index.php?title=Busy_beaver&#x0026;oldid=719770898</a>.
+    </p> 
+</dd><dt id="X0-computerphile_busy_2014" class="thebibliography">
+[4]  </dt><dd 
+id="bib-4" class="thebibliography">
+    <p>Busy    Beaver    Turing    Machines    -    Computerphile.     Sept. 2,     2014.     url:
+    <a 
+href="https://www.youtube.com/watch?v=CE8UhcyJS0I" class="url" >https://www.youtube.com/watch?v=CE8UhcyJS0I</a>.
+                                                                                
+
+                                                                                
+    </p> 
+</dd><dt id="X0-krumins_busy_2009" class="thebibliography">
+[5]  </dt><dd 
+id="bib-5" class="thebibliography">
+    <p>Peteris     Krumins.     The     Busy     Beaver     Problem.     Oct. 29,     2009.     url:
+    <a 
+href="http://www.catonmat.net/blog/busy-beaver/" class="url" >http://www.catonmat.net/blog/busy-beaver/</a>.
+    </p> 
+</dd><dt id="X0-rado_non-computable_1962" class="thebibliography">
+[6]  </dt><dd 
+id="bib-6" class="thebibliography">
+    <p>T. Rado. “On non-computable functions”. In: The Bell System Technical Journal 41.3 (May
+    1962), pp. 877–884. issn: 0005-8580. doi: <a 
+href="http://dx.doi.org/10.1002/j.1538-7305.1962.tb00480.x" >10.1002/j.1538-7305.1962.tb00480.x</a>.
+    </p> 
+</dd><dt id="X0-sipser_introduction_2012" class="thebibliography">
+[7]  </dt><dd 
+id="bib-7" class="thebibliography">
+    <p>Michael Sipser. Introduction to the theory of computation. 3rd Ed. Boston, MA: Course
+    Technology Cengage Learning, 2012. isbn: 9781133187790.
+    </p> 
+</dd><dt id="X0-yedidia_relatively_2016" class="thebibliography">
+[8]  </dt><dd 
+id="bib-8" class="thebibliography">
+    <p>Adam Yedidia and Scott Aaronson. “A Relatively Small Turing Machine Whose Behavior
+    Is  Independent  of  Set  Theory”.  In:  (May 13,  2016).  arXiv:  <a 
+href="http://arxiv.org/abs/1605.04343" >1605.04343  <code>[cs]</code></a>.  url:
+    <a 
+href="http://arxiv.org/abs/1605.04343" class="url" >http://arxiv.org/abs/1605.04343</a>.</p> 
+</dd></dl>
+   <div class="footnotes"><p>    <span class="footnote-mark"><a 
+href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span>The Turing machine which we deﬁne here does not have a center shift, meaning that the tape head must move
+left or right after each move</p> 
+
+<p>     <span class="footnote-mark"><a 
+href="#fn2x0-bk" id="fn2x0"><sup class="textsuperscript">2</sup></a></span>called the Universal Turing Machine or UTM</p> 
+                                                                             </div>
+ 
+</body> 
+</html>
+                                                                                
+
+

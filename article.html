@@ -20,8 +20,11 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLor
                                                                                 
 
 <h2 class="titleHead">The Busy Beaver Problem</h2>
-<div class="author" >Deepak Sirone J <br class="and" />Arpan Kapoor</div><br />
-<div class="date" >June 3, 2016</div>
+<div class="author" ><span 
+class="cmr-12">Deepak Sirone J </span><br class="and" /><span 
+class="cmr-12">Arpan Kapoor</span></div><br />
+<div class="date" ><span 
+class="cmr-12">June 3, 2016</span></div>
    </div>
 <p>   A function is merely an abstraction used by mathematicians. It is deﬁned by its input type called
 the domain, output type called the range and suitable deﬁnitions of the domain and the range. A
@@ -380,13 +383,43 @@ wrong.
 <div class="algorithmic">
       <span class="label-5.0pt">
   </span> <span 
-class="algorithmic"><b>function</b> halts?(M, x)       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    k = <!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="algorithmic"><b><span 
+class="cmbx-10">function</span></b> <span 
+class="cmcsc-10"><span 
+class="small-caps">h</span><span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">t</span><span 
+class="small-caps">s</span>?</span>(M, x)       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    k = <!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
 class="MathClass-rel">|</mo></mrow></math>M.Q<!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
 class="MathClass-rel">|</mo></mrow></math>   <!--l. 129--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
-class="MathClass-bin">⊳</mo></mrow></math>   Number of states of the Turing machine M       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    bbk = BB(k) <!--l. 130--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-bin">⊳</mo></mrow></math>   Number of states of the Turing machine M       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    bbk = <span 
+class="cmcsc-10">BB</span>(k) <!--l. 130--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
 class="MathClass-bin">⊳</mo></mrow></math>   Number of steps taken by a <!--l. 130--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mi 
->k</mi></mrow></math>-state   Busy Beaver       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b>if</b> UTM(M, x, bbk) <b>then</b> <b>return</b> Halts <!--l. 132--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
-class="MathClass-bin">⊳</mo></mrow></math>   UTM simulates M on input x for bbk steps       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b>else</b> <b>return</b> Does NOT Halt       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b>end</b> <b>if</b>       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic"><b>end</b> <b>function</b></span>
+>k</mi></mrow></math>-state   Busy Beaver       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b><span 
+class="cmbx-10">if</span></b> <span 
+class="cmcsc-10">UTM</span>(M, x, bbk) <b><span 
+class="cmbx-10">then</span></b> <b><span 
+class="cmbx-10">return</span></b> <span 
+class="cmcsc-10">H<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">t</span><span 
+class="small-caps">s</span> </span><!--l. 132--><math   xmlns="http://www.w3.org/1998/Math/MathML"   display="inline" ><mrow  ><mo 
+class="MathClass-bin">⊳</mo></mrow></math>   UTM simulates M on input x for bbk steps       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b><span 
+class="cmbx-10">else</span></b> <b><span 
+class="cmbx-10">return</span></b> <span 
+class="cmcsc-10">D<span 
+class="small-caps">o</span><span 
+class="small-caps">e</span><span 
+class="small-caps">s</span> NOT H<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">t</span></span>       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic">    <b><span 
+class="cmbx-10">end</span></b> <b><span 
+class="cmbx-10">if</span></b>       </span><br class="algorithmic"/><span class="label-5.0pt">   </span> <span  class="algorithmic"><b><span 
+class="cmbx-10">end</span></b> <b><span 
+class="cmbx-10">function</span></b></span>
 <p>   </div>
 </p> 
 <p>   Another interesting fact that can be observed using the same argument is
@@ -541,30 +574,55 @@ conclude that the conjecture does not hold.
 [1]  </dt><dd 
 id="bib-1" class="thebibliography">
     <p><a id="page.7"></a><a 
-href="article.html" id="X0-" ></a>Scott     Aaronson.     Who    Can    Name    the    Bigger    Number?     1999.     url:
+href="article.html" id="X0-" ></a>Scott     Aaronson.     <span 
+class="cmti-10">Who    Can    Name    the    Bigger    Number?     </span>1999.     <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span></span>:
     <a 
-href="http://www.scottaaronson.com/writings/bignumbers.html" class="url" >http://www.scottaaronson.com/writings/bignumbers.html</a>.
+href="http://www.scottaaronson.com/writings/bignumbers.html" class="url" ><span 
+class="cmtt-10">http://www.scottaaronson.com/writings/bignumbers.html</span></a>.
     </p> 
 </dd><dt id="X0-baez_busy_2016" class="thebibliography">
 [2]  </dt><dd 
 id="bib-2" class="thebibliography">
-    <p>John       Baez.       The      Busy      Beaver      Game.       May 21,       2016.       url:
+    <p>John       Baez.       <span 
+class="cmti-10">The      Busy      Beaver      Game</span>.       May 21,       2016.       <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span></span>:
     <a 
-href="https://johncarlosbaez.wordpress.com/2016/05/21/the-busy-beaver-game/" class="url" >https://johncarlosbaez.wordpress.com/2016/05/21/the-busy-beaver-game/</a>.
+href="https://johncarlosbaez.wordpress.com/2016/05/21/the-busy-beaver-game/" class="url" ><span 
+class="cmtt-10">https://johncarlosbaez.wordpress.com/2016/05/21/the-busy-beaver-game/</span></a>.
     </p> 
 </dd><dt id="X0-_busy_2016" class="thebibliography">
 [3]  </dt><dd 
 id="bib-3" class="thebibliography">
-    <p>Busy    beaver.    In:    Wikipedia,    the    free    encyclopedia.    May 11,    2016.    url:
+    <p><span 
+class="cmti-10">Busy    beaver</span>.    In:    <span 
+class="cmti-10">Wikipedia,    the    free    encyclopedia</span>.    May 11,    2016.    <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span></span>:
     <a 
-href="https://en.wikipedia.org/w/index.php?title=Busy_beaver&oldid=719770898" class="url" >https://en.wikipedia.org/w/index.php?title=Busy_beaver&#x0026;oldid=719770898</a>.
+href="https://en.wikipedia.org/w/index.php?title=Busy_beaver&oldid=719770898" class="url" ><span 
+class="cmtt-10">https://en.wikipedia.org/w/index.php?title=Busy_beaver&#x0026;oldid=719770898</span></a>.
     </p> 
 </dd><dt id="X0-computerphile_busy_2014" class="thebibliography">
 [4]  </dt><dd 
 id="bib-4" class="thebibliography">
-    <p>Busy    Beaver    Turing    Machines    -    Computerphile.     Sept. 2,     2014.     url:
+    <p><span 
+class="cmti-10">Busy    Beaver    Turing    Machines    -    Computerphile</span>.     Sept. 2,     2014.     <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span></span>:
     <a 
-href="https://www.youtube.com/watch?v=CE8UhcyJS0I" class="url" >https://www.youtube.com/watch?v=CE8UhcyJS0I</a>.
+href="https://www.youtube.com/watch?v=CE8UhcyJS0I" class="url" ><span 
+class="cmtt-10">https://www.youtube.com/watch?v=CE8UhcyJS0I</span></a>.
                                                                                 
 
                                                                                 
@@ -572,38 +630,69 @@ href="https://www.youtube.com/watch?v=CE8UhcyJS0I" class="url" >https://www.yout
 </dd><dt id="X0-krumins_busy_2009" class="thebibliography">
 [5]  </dt><dd 
 id="bib-5" class="thebibliography">
-    <p>Peteris     Krumins.     The     Busy     Beaver     Problem.     Oct. 29,     2009.     url:
+    <p>Peteris     Krumins.     <span 
+class="cmti-10">The     Busy     Beaver     Problem</span>.     Oct. 29,     2009.     <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span></span>:
     <a 
-href="http://www.catonmat.net/blog/busy-beaver/" class="url" >http://www.catonmat.net/blog/busy-beaver/</a>.
+href="http://www.catonmat.net/blog/busy-beaver/" class="url" ><span 
+class="cmtt-10">http://www.catonmat.net/blog/busy-beaver/</span></a>.
     </p> 
 </dd><dt id="X0-rado_non-computable_1962" class="thebibliography">
 [6]  </dt><dd 
 id="bib-6" class="thebibliography">
-    <p>T. Rado. “On non-computable functions”. In: The Bell System Technical Journal 41.3 (May
-    1962), pp. 877–884. issn: 0005-8580. doi: <a 
+    <p>T. Rado. “On non-computable functions”. In: <span 
+class="cmti-10">The Bell System Technical Journal </span>41.3 (May
+    1962), pp. 877–884. <span 
+class="cmcsc-10"><span 
+class="small-caps">i</span><span 
+class="small-caps">s</span><span 
+class="small-caps">s</span><span 
+class="small-caps">n</span></span>: 0005-8580. <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">i</span></span>: <a 
 href="http://dx.doi.org/10.1002/j.1538-7305.1962.tb00480.x" >10.1002/j.1538-7305.1962.tb00480.x</a>.
     </p> 
 </dd><dt id="X0-sipser_introduction_2012" class="thebibliography">
 [7]  </dt><dd 
 id="bib-7" class="thebibliography">
-    <p>Michael Sipser. Introduction to the theory of computation. 3rd Ed. Boston, MA: Course
-    Technology Cengage Learning, 2012. isbn: 9781133187790.
+    <p>Michael Sipser. <span 
+class="cmti-10">Introduction to the theory of computation</span>. 3rd Ed. Boston, MA: Course
+    Technology Cengage Learning, 2012. <span 
+class="cmcsc-10"><span 
+class="small-caps">i</span><span 
+class="small-caps">s</span><span 
+class="small-caps">b</span><span 
+class="small-caps">n</span></span>: 9781133187790.
     </p> 
 </dd><dt id="X0-yedidia_relatively_2016" class="thebibliography">
 [8]  </dt><dd 
 id="bib-8" class="thebibliography">
     <p>Adam Yedidia and Scott Aaronson. “A Relatively Small Turing Machine Whose Behavior
     Is  Independent  of  Set  Theory”.  In:  (May 13,  2016).  arXiv:  <a 
-href="http://arxiv.org/abs/1605.04343" >1605.04343  <code>[cs]</code></a>.  url:
+href="http://arxiv.org/abs/1605.04343" >1605.04343  <code><span 
+class="cmtt-10">[cs]</span></code></a>.  <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span></span>:
     <a 
-href="http://arxiv.org/abs/1605.04343" class="url" >http://arxiv.org/abs/1605.04343</a>.</p> 
+href="http://arxiv.org/abs/1605.04343" class="url" ><span 
+class="cmtt-10">http://arxiv.org/abs/1605.04343</span></a>.</p> 
 </dd></dl>
    <div class="footnotes"><p>    <span class="footnote-mark"><a 
-href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span>The Turing machine which we deﬁne here does not have a center shift, meaning that the tape head must move
-left or right after each move</p> 
+href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">The Turing machine which we deﬁne here does not have a center shift, meaning that the tape head must move</span>
+<span 
+class="cmr-8">left or right after each move</span></p> 
 
 <p>     <span class="footnote-mark"><a 
-href="#fn2x0-bk" id="fn2x0"><sup class="textsuperscript">2</sup></a></span>called the Universal Turing Machine or UTM</p> 
+href="#fn2x0-bk" id="fn2x0"><sup class="textsuperscript">2</sup></a></span><span 
+class="cmr-8">called the Universal Turing Machine or UTM</span></p> 
                                                                              </div>
  
 </body> 

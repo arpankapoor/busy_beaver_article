@@ -29,16 +29,15 @@ For example:
   \item \(f(x) = x \times x\) , where \(x \in \mathbb{R}\).
     Here we assume that the operation \(\times\) is closed in \(\mathbb{R}\)
 
-  \item \(f(x) = \{e \mid \forall k \in x,\space \space e > x\}\) where \(x\) is
-    a finite subset of natural numbers
+  \item \(f(x) = \{e \mid \forall k \in x,\space \space e \geq k\}\) where
+    \(x\) is a finite subset of natural numbers
 \end{enumerate}
 
 Many a time we are interested in computing the output of a function using an
 algorithm. The description of the first example in this case, implicitly gives
 us an algorithm for computing the output if the algorithm for performing the
 operation \(\times\) is known. The second example intuitively asks us to
-iterate through the elements in the set and find the unique largest element
-in it, if it exists.
+iterate through the elements in the set and find the largest element in it.
 
 However, the notion of a function does not define the algorithm to get from
 the input to the output. This means that using this definition of functions,
